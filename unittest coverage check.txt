@@ -1,0 +1,36 @@
+我们
+可以使用gcov来进行行覆盖率的统计。
+---------------------------------------------------------------------------------
+关于gcov的介绍，大家可以参考：
+http://blog.csdn.net/yao_zhuang/archive/2007/11/17/1890323.aspx
+---------------------------------------------------------------------------------
+
+简单来讲要使用gcov，需要在我们用gcc编译程序时加入两个参数fprofile-arcs和ftest-coverage.
+gcov主要使用.gcno和.gcda两个文件
+.gcno是由-ftest-coverage产生的，它包含了重建基本块图和相应的块的源码的行号的信息。
+.gcda是由加了-fprofile-arcs编译参数的编译后的文件运行所产生的，它包含了弧跳变的次数和
+其他的概要信息。
+
+使用这两个参数编译好源代码之后，运行调用程序，即可进行覆盖率的统计。最后可以在源代
+码目录运行如下命令来查看行覆盖率：
+gcov xxx.cpp(要查看的源文件名)
+
+我已经将CVS上的makefile进行了修改，要统计覆盖率的时候，请使用make INDEBUGGING=1
+来编译源文件，然后编译、运行测试代码，最后在源代码的目录运行gcov xxxx.cpp(要查看
+的源文件名)，即可看到行覆盖率。
+
+例如：
+xx-lib的目录结构如下：
+xx-lib
+ |- include
+ |- src
+ |- test
+ |- other test case
+在xx-lib/src目录下以make INDEBUGGING=1编译出静态库，然后在xx-lib/test目录下编译运
+行test case，最后：
+    在xx-lib/src下运行gcov df_replica_cache.cpp(以该文件为例)，则可以得到如下结果：
+File `df_replica_cache.cpp'
+Lines executed:96.55% of 58
+df_replica_cache.cpp:creating `df_replica_cache.cpp.gcov'
+
+请大家写完测试代码之后及时check测试覆盖率，我们要求最终必须达到80%以上的代码覆盖率。

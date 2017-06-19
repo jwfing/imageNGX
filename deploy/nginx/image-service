@@ -1,0 +1,44 @@
+server {
+    listen 80;
+    keepalive_timeout    70;
+    server_name img.zeen.com;
+
+    location / {
+        proxy_pass  http://127.0.0.1:9100/;
+        proxy_set_header Host $http_host;
+        proxy_set_header Remote-Addr $http_remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+
+        access_log /var/log/nginx/lean-image.access.log;
+    }
+    location /v2 {
+        proxy_pass  http://127.0.0.1:9100/v2;
+        proxy_set_header Host $http_host;
+        proxy_set_header Remote-Addr $http_remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+
+        expires max;
+
+        # cnfe-cache is define in cache.conf.
+        proxy_cache cnfe-cache;
+        #greedy cache for status 200
+        proxy_cache_valid 200 24000m;
+
+        access_log /var/log/nginx/lean-image.access.log;
+    }
+    location /montage {
+        proxy_pass  http://127.0.0.1:9100/montage;
+        proxy_set_header Host $http_host;
+        proxy_set_header Remote-Addr $http_remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+
+        expires max;
+
+        # cnfe-cache is define in cache.conf.
+        proxy_cache cnfe-cache;
+        #greedy cache for status 200
+        proxy_cache_valid 200 24000m;
+
+        access_log /var/log/nginx/lean-image.access.log;
+    }
+}
