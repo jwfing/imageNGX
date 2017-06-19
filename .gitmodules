@@ -1,0 +1,15 @@
+[submodule "thirdparties/mongocdriver"]
+	path = thirdparties/mongocdriver
+	url = git@github.com:jwfing/mongo-c-driver.git
+[submodule "thirdparties/pion"]
+	path = thirdparties/pion
+	url = git@github.com:jwfing/pion.git
+[submodule "thirdparties/imagemagick"]
+	path = thirdparties/imagemagick
+	url = git@github.com:jwfing/ImageMagick.git
+[submodule "thirdparties/libs3"]
+	path = thirdparties/libs3
+	url = git@github.com:jwfing/libs3.git
+[submodule "thirdparties/opencv"]
+	path = thirdparties/opencv
+	url = https://github.com/jwfing/opencv.git
