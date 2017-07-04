@@ -10,7 +10,7 @@ using namespace log4cxx;
 using namespace log4cxx::helpers;
 
 LoggerPtr ImagickRainbow::_logger = \
-    Logger::getLogger("avos.backend.imageService.imagickRainbow");
+    Logger::getLogger("leancloud.backend.imageService.imagickRainbow");
 
 ImagickRainbow::ImagickRainbow() {
     resetColors();

@@ -7,7 +7,7 @@ using namespace log4cxx::helpers;
 using namespace std;
 
 LoggerPtr ImagickExtraImageInfo::_logger = \
-        Logger::getLogger("avos.backend.imageService.imagickExtraImageInfo");
+        Logger::getLogger("leancloud.backend.imageService.imagickExtraImageInfo");
 
 ImagickExtraImageInfo::ImagickExtraImageInfo() {
     _hasFaces = false;

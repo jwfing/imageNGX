@@ -9,7 +9,7 @@ using namespace log4cxx::helpers;
 using namespace std;
 
 LoggerPtr ImagicImageOperator::_logger = \
-    Logger::getLogger("avos.backend.imageService.ImagicImageOperator");
+    Logger::getLogger("leancloud.backend.imageService.ImagicImageOperator");
 
 ImagicImageOperator::ImagicImageOperator() {
     _colors.clear();

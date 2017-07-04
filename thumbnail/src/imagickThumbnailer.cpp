@@ -9,7 +9,7 @@ using namespace log4cxx::helpers;
 using namespace std;
 
 LoggerPtr ImagickThumbnailer::_logger = \
-        Logger::getLogger("avos.backend.imageService.thumbnailer");
+        Logger::getLogger("leancloud.backend.imageService.thumbnailer");
 
 ImagickThumbnailer::ImagickThumbnailer() {
     LOG4CXX_INFO(_logger, "create ImagickThumbnailer instance");

@@ -10,7 +10,7 @@ using namespace log4cxx;
 using namespace log4cxx::helpers;
 
 LoggerPtr ImagickMontage::_logger = \
-    Logger::getLogger("avos.backend.imageService.imagickMontage");
+    Logger::getLogger("leancloud.backend.imageService.imagickMontage");
 
 ImagickMontage::ImagickMontage() {
 }

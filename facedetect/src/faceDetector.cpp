@@ -7,7 +7,7 @@ using namespace log4cxx;
 using namespace log4cxx::helpers;
 
 LoggerPtr FaceDetector::_logger = \
-        Logger::getLogger("avos.backend.imageService.faceDetector");
+        Logger::getLogger("leancloud.backend.imageService.faceDetector");
 
 FaceDetector::FaceDetector() {
     _cascadeName = "/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml";
